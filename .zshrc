@@ -2,8 +2,8 @@
 case ${OSTYPE} in
     darwin*) # Macでの設定
 
-        # ~/bin/ にパスを通す
-        # export PATH=~/bin:$PATH
+        # GNU系コマンドのディレクトリにパスを通す
+        export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
         # /usr/local/sbin/, /usr/local/bin/ にパスを通す
         export PATH=/usr/local/sbin:/usr/local/bin:$PATH

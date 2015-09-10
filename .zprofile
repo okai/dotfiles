@@ -1,4 +1,4 @@
-alias ls="ls -G"
+alias ls="ls --color"
 alias cdweb='cd ~/SkyDrive/Dropbox/web/homepage/public_html'
 alias cdsotsuken='cd ~/SkyDrive/Dropbox/資料/学習資料/卒業研究'
 alias cddialy='cd ~/SkyDrive/Dropbox/日記'
