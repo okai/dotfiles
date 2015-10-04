@@ -43,7 +43,7 @@ if has('vim_starting')
         NeoBundle 'altercation/vim-colors-solarized'
         NeoBundle 'tyru/caw.vim.git'
         NeoBundle 'thinca/vim-quickrun'
-        NeoBundle 'davidhalter/jedi-vim'
+        " NeoBundle 'davidhalter/jedi-vim'
         NeoBundle 'hdima/python-syntax'
         " if_luaが有効ならneocompleteを使う
         NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
@@ -52,6 +52,7 @@ if has('vim_starting')
         NeoBundle 'Shougo/neomru.vim'
 
         NeoBundle 'tyru/open-browser.vim.git'
+        NeoBundle 'tyru/eskk.vim.git'
 
 
         call neobundle#end()
@@ -196,14 +197,14 @@ if neobundle#is_installed('neocomplete')
     " jedi-vimとneocomplete.vimを併用する設定
     " 参照：http://kozo2.hatenablog.com/entry/2014/01/22/050714
     "       http://dackdive.hateblo.jp/entry/2014/08/13/130000
-    autocmd FileType python3 setlocal omnifunc=jedi#completions
+    " autocmd FileType python3 setlocal omnifunc=jedi#completions
     "let g:jedi#popup_select_first=0
-    let g:jedi#completions_enabled = 0
-    let g:jedi#auto_vim_configuration = 0
-    if !exists('g:neocomplete#force_omni_input_patterns')
-        let g:neocomplete#force_omni_input_patterns = {}
-    endif
-    let g:neocomplete#force_omni_input_patterns.python3 = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+    " let g:jedi#completions_enabled = 0
+    " let g:jedi#auto_vim_configuration = 0
+    " if !exists('g:neocomplete#force_omni_input_patterns')
+    "     let g:neocomplete#force_omni_input_patterns = {}
+    " endif
+    " let g:neocomplete#force_omni_input_patterns.python3 = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 
 elseif neobundle#is_installed('neocomplcache')
     " neocomplcache用設定
@@ -263,8 +264,11 @@ vmap <Leader>c <Plug>(caw:i:toggle)
 nnoremap <Leader>R <Plug>(quickrun)
 let g:quickrun_config = {}
 " MarkdownファイルでQuickRunを起動した時に、出力をブラウザに向ける
+" 参考：http://vim-jp.org/vim-users-jp/2011/09/15/Hack-230.html
 let g:quickrun_config['markdown'] = {
-            \ 'outputter': 'browser'
+            \ 'type': 'markdown/pandoc',
+            \ 'outputter': 'browser',
+            \ 'cmdopt': '-s --mathjax -c ~/.pandoc/github.css'
             \ }
 
 

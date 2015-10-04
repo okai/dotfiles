@@ -28,6 +28,9 @@ case ${OSTYPE} in
         alias sc='screencapture -s "$@"'
         alias scw='screencapture -w "$@"'
 
+        # 各種ブラウザを起動
+        alias chrome='open -a /Applications/Google\ Chrome.app "$@"'
+
         # nvmの設定
         # http://liginc.co.jp/web/programming/node-js/85318
         if [[ -s ~/.nvm/nvm.sh ]];
