@@ -20,6 +20,10 @@ style! -name=commandline-ime chrome://* #liberator-commandline-command input {im
 " [,r]で.vimperatorを再読み込み
 " liberator.execute("map ,r :source<Space>~/.vimperatorrc<CR>");
 
+" ナビゲーションバーを表示しない
+" 参考：http://d.hatena.ne.jp/hagi44/20140628/1403931165
+set gui=nonavigation
+
 " 移動幅
 noremap j 5j
 noremap k 5k

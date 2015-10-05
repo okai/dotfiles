@@ -54,6 +54,8 @@ if has('vim_starting')
         NeoBundle 'tyru/open-browser.vim.git'
         NeoBundle 'tyru/eskk.vim.git'
 
+        NeoBundle 'TwitVim'
+
 
         call neobundle#end()
 endif
@@ -282,6 +284,15 @@ nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+
+
+" TwitVimの設定
+" 参照：http://qiita.com/noboru/items/f709e42489d9351e8421
+" let twitvim_browser_cmd = 'open' " for Mac
+" let twitvim_browser_cmd = '/Applications/Firefox.app' " for Mac
+" let twitvim_browser_cmd = 'C:¥Program Files¥Your_Browser_Path' " for Windows
+let twitvim_force_ssl = 1 
+let twitvim_count = 40
 
 " Vimの戦闘力を計測する
 function! Scouter(file, ...)
