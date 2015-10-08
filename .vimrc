@@ -52,9 +52,11 @@ if has('vim_starting')
         NeoBundle 'Shougo/neomru.vim'
 
         NeoBundle 'tyru/open-browser.vim.git'
-        NeoBundle 'tyru/eskk.vim.git'
+        " NeoBundle 'tyru/eskk.vim.git'
 
         NeoBundle 'TwitVim'
+
+        NeoBundle 'rcmdnk/vim-markdown'
 
 
         call neobundle#end()
@@ -73,7 +75,7 @@ let g:tex_conceal=''
 
 set autoindent
 "バックアップファイルを作るディレクトリ
-set backupdir=$HOME/vimbackup
+" set backupdir=$HOME/vimbackup
 "ファイル保存ダイアログの初期ディレクトリをバッファファイル位置に設定
 set browsedir=buffer 
 "クリップボードをWindowsと連携
@@ -81,7 +83,7 @@ set clipboard=unnamed
 "Vi互換をオフ
 set nocompatible
 "スワップファイル用のディレクトリ
-set directory=$HOME/vimbackup
+" set directory=$HOME/vimbackup
 "undoの設定
 set undofile
 "タブの代わりに空白文字を挿入する
