@@ -15,7 +15,7 @@ set hintchars=ojfnvurhgytbkdmcielsx
 " ツールバーはアドオンとタブのみ表示
 " set gui=addons,nobookmarks,nomenu,nonavigation,tas
 " commandモードでIMEオフ
-style! -name=commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
+" style! -name=commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
 
 " [,r]で.vimperatorを再読み込み
 " liberator.execute("map ,r :source<Space>~/.vimperatorrc<CR>");

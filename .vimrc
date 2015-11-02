@@ -58,6 +58,8 @@ if has('vim_starting')
 
         NeoBundle 'rcmdnk/vim-markdown'
 
+        NeoBundle 'tyru/skk.vim'
+
 
         call neobundle#end()
 endif
@@ -160,7 +162,7 @@ autocmd BufWinEnter ?* silent loadview
 autocmd FileType python setlocal completeopt-=preview
 
 "入力モード中に素早くjjと入力した場合はESCとみなす
-inoremap jj <Esc>
+" inoremap jj <Esc>
 "j,k による移動を折り返されたテキストでも自然に振る舞うように変更
 nnoremap j gj
 nnoremap k gk

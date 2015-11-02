@@ -1,5 +1,5 @@
-
-
+# Vimライクな操作にする
+bindkey -v
 
 # 補完機能
 autoload -U compinit
@@ -24,6 +24,10 @@ setopt auto_cd
 
 # 移動したディレクトリを記録しておく。"cd -[Tab]"で移動履歴を一覧
 setopt auto_pushd
+
+# pushd したとき、ディレクトリがすでにスタックに含まれていればスタックに追加しない
+# 参照：http://qiita.com/uasi/items/c4288dd835a65eb9d709
+setopt pushd_ignore_dups
 
 # コマンド訂正
 setopt correct
