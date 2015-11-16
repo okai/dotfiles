@@ -9,7 +9,7 @@ let OSTYPE = system('uname')
 if OSTYPE == "Darwin\n"
    "Mac向けの設定
 
-   let $PYTHON3_DLL="/usr/local/Cellar/python3/3.4.3/Frameworks/Python.framework/Versions/3.4/Python"
+   let $PYTHON3_DLL="/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/Python"
 
 "    " Python3のPathを通す
 "    let s:python3_path = system('python3 -', 'import sys;sys.stdout.write(",".join(sys.path))')
@@ -43,7 +43,7 @@ if has('vim_starting')
         NeoBundle 'altercation/vim-colors-solarized'
         NeoBundle 'tyru/caw.vim.git'
         NeoBundle 'thinca/vim-quickrun'
-        " NeoBundle 'davidhalter/jedi-vim'
+        NeoBundle 'davidhalter/jedi-vim'
         NeoBundle 'hdima/python-syntax'
         " if_luaが有効ならneocompleteを使う
         NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
@@ -59,6 +59,13 @@ if has('vim_starting')
         NeoBundle 'rcmdnk/vim-markdown'
 
         NeoBundle 'tyru/skk.vim'
+
+        NeoBundle 'dhruvasagar/vim-table-mode'
+
+        " http://ton-up.net/technote/2013/11/26/vim-python-style-check-and-fix/
+        NeoBundle 'scrooloose/syntastic'
+
+        NeoBundle 'itchyny/lightline.vim'
 
 
         call neobundle#end()
@@ -150,7 +157,10 @@ set showcmd
 set title
 "helpの言語をデフォルトで英語にする。キーワードの後に@jaをつけると日本語になる
 set helplang& helplang=en,ja
-"python-syntaxの設定
+
+" 行番号を相対表示にする。
+" 参照：http://cohama.hateblo.jp/entry/2013/10/07/020453
+" set relativenumber
 
 "カーソル位置保存&復元
 "参照：http://ac-mopp.blogspot.jp/2012/10/vim-to.html
@@ -266,9 +276,10 @@ let python_highlight_all = 1
 nmap <Leader>c <Plug>(caw:i:toggle)
 vmap <Leader>c <Plug>(caw:i:toggle)
 
-" \Rでquickrun
-nnoremap <Leader>R <Plug>(quickrun)
+" \rでquickrun
+nnoremap <Leader>R <Plug>(Quickrun)
 let g:quickrun_config = {}
+let g:quickrun_config['*'] = {'runner': 'vimproc'}
 " MarkdownファイルでQuickRunを起動した時に、出力をブラウザに向ける
 " 参考：http://vim-jp.org/vim-users-jp/2011/09/15/Hack-230.html
 let g:quickrun_config['markdown'] = {
@@ -297,6 +308,27 @@ nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 " let twitvim_browser_cmd = 'C:¥Program Files¥Your_Browser_Path' " for Windows
 let twitvim_force_ssl = 1 
 let twitvim_count = 40
+
+" skk.vimの設定
+let g:skk_auto_save_jisyo = 1
+
+" vim-table-modeの設定
+let g:table_mode_corner_corner="+"
+let g:table_mode_header_fillchar="="
+
+" syntasticの設定
+" pythonについての設定 参照:http://ton-up.net/technote/2013/11/26/vim-python-style-check-and-fix/
+let g:syntastic_python_checkers = ['pyflakes', 'pep8']
+
+" lightlineの設定
+let g:lightline = {
+    \ 'colorscheme': 'seoul256',
+    \ 'component': {
+    \   'readonly': '%{&readonly?"⭤":""}',
+    \ },
+    \ 'separator': { 'left': '⮀', 'right': '⮂' },
+    \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+    \ }
 
 " Vimの戦闘力を計測する
 function! Scouter(file, ...)
