@@ -44,6 +44,9 @@ setopt nolistbeep
 #
 export LANG=ja_JP.UTF-8
 
+# PYTHONPATHの設定
+export PYTHONPATH='/usr/local/lib/python3.5/site-packages'
+
 ## Default shell configuration
 #
 # set prompt

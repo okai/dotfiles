@@ -9,18 +9,21 @@ let OSTYPE = system('uname')
 if OSTYPE == "Darwin\n"
    "Mac向けの設定
 
-   let $PYTHON3_DLL="/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/Python"
+   " let $PYTHON3_DLL="/usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/Python"
 
-"    " Python3のPathを通す
-"    let s:python3_path = system('python3 -', 'import sys;sys.stdout.write(",".join(sys.path))')
-" python3 <<EOM
-" import sys
-" import vim
-" python3_paths = vim.eval('s:python3_path').split(',')
-" for path in python3_paths:
-"     if not path in sys.path:
-"         sys.path.insert(0, path)
-" EOM
+   " Python3のPathを通す
+   let s:python3_path = system('python3 -', 'import sys;sys.stdout.write(",".join(sys.path))')
+
+python3 <<EOM
+import sys
+import vim
+python3_paths = vim.eval('s:python3_path').split(',')
+for path in python3_paths:
+    if not path in sys.path:
+        sys.path.insert(0, path)
+
+#sys.path.insert(0,'/usr/local/lib/python3.5/site-packages/')
+EOM
 
 elseif OSTYPE == "Linux\n"
    "ここにLinux向けの設定
@@ -204,7 +207,7 @@ if neobundle#is_installed('neocomplete')
     let g:neocomplete#enable_ignore_case = 1
     let g:neocomplete#enable_smart_case = 1
     let g:neocomplete#enable_fuzzy_completion = 1
-    
+
     if !exists('g:neocomplete#keyword_patterns')
         let g:neocomplete#keyword_patterns = {}
     endif
@@ -213,14 +216,23 @@ if neobundle#is_installed('neocomplete')
     " jedi-vimとneocomplete.vimを併用する設定
     " 参照：http://kozo2.hatenablog.com/entry/2014/01/22/050714
     "       http://dackdive.hateblo.jp/entry/2014/08/13/130000
-    " autocmd FileType python3 setlocal omnifunc=jedi#completions
-    "let g:jedi#popup_select_first=0
+    autocmd FileType python let b:did_ftplugin = 1
+    autocmd FileType python setlocal omnifunc=jedi#completions
+    " set completeopt=menuone,longest,preview
+    " let g:jedi#auto_initialization = 1
+    let g:jedi#popup_on_dot = 1
+    " let g:jedi#show_call_signatures = 0
+    let g:jedi#auto_vim_configuration = 0
+    let g:jedi#popup_select_first = 0
     " let g:jedi#completions_enabled = 0
-    " let g:jedi#auto_vim_configuration = 0
-    " if !exists('g:neocomplete#force_omni_input_patterns')
-    "     let g:neocomplete#force_omni_input_patterns = {}
-    " endif
-    " let g:neocomplete#force_omni_input_patterns.python3 = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+    if !exists('g:neocomplete#sources#omni#input_patterns')
+        " let g:neocomplete#force_omni_input_patterns = {}
+        let g:neocomplete#sources#omni#input_patterns = {}
+    endif
+    " 修正(2015/11/17) 参照：http://lesguillemets.github.io/blog/2014/06/22/vim-python3.html
+    " let g:neocomplete#sources#omni#input_patterns.python = ''
+    " let g:neocomplete#sources#omni#input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+    let g:neocomplete#sources#omni#input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 
 elseif neobundle#is_installed('neocomplcache')
     " neocomplcache用設定
