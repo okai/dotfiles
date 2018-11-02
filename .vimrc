@@ -24,54 +24,20 @@ Plugin 'tyru/caw.vim.git'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'itchyny/lightline.vim'
 
 call vundle#end()
 filetype plugin indent on
 
-"if has('vim_starting')
-"        set runtimepath+=~/.vim/bundle/neobundle.vim
-"        call neobundle#begin(expand('~/.vim/bundle'))
-"        NeoBundleFetch 'Shougo/NeoBundle.vim'
-"
-"        NeoBundle 'Shougo/neobundle.vim'
-"        NeoBundle 'Shougo/vimproc'
-"        NeoBundle 'Shougo/neosnippet'
-"        NeoBundle 'Shougo/neosnippet-snippets'
-"        NeoBundle 'thinca/vim-quickrun'
-"        NeoBundle 'davidhalter/jedi-vim'
-"        NeoBundle 'hdima/python-syntax'
-"        " if_luaが有効ならneocompleteを使う
-"        NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
-"        
-"        NeoBundle 'Shougo/unite.vim'
-"        NeoBundle 'Shougo/neomru.vim'
-"
-"        NeoBundle 'tyru/open-browser.vim.git'
-"        " NeoBundle 'tyru/eskk.vim.git'
-"
-"        NeoBundle 'TwitVim'
-"
-"        NeoBundle 'rcmdnk/vim-markdown'
-"
-"        NeoBundle 'tyru/skk.vim'
-"
-"        NeoBundle 'dhruvasagar/vim-table-mode'
-"
-"        " http://ton-up.net/technote/2013/11/26/vim-python-style-check-and-fix/
-"        NeoBundle 'scrooloose/syntastic'
-"
-"        NeoBundle 'itchyny/lightline.vim'
-"
-"
-"        call neobundle#end()
-"endif
 
 syntax on
 set background=dark
 " set t_Co=256
 colorscheme solarized
+
+let g:lightline = {
+            \ 'colorscheme': 'solarized', 
+            \ }
 
 " .texファイルの記号を変換して表示しない
 let g:tex_conceal=''
@@ -193,78 +159,6 @@ set clipboard+=unnamed
 let g:acp_enableAtStartup = 0
 
 
-" Powerline系フォントを利用する
-set laststatus=2
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline#extensions#whitespace#mixed_indent_algo = 1
-let g:airline_theme = 'tomorrow'
-if !exists('g:airline_symbols')
-      let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.maxlinenr = '㏑'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = '∄'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.maxlinenr = ''
-
-
-
-" <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
-" Plugin key-mappings.
-"imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-"smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-"neosnippet_expand_or_jumpimap <Enter>     <Plug>(neosnippet_expand_or_jump)
-"neosnippet_expand_or_jumpsmap <Enter>     <Plug>(neosnippet_expand_or_jump)
-" imap <expr><Enter> !pumvisible() ? "\<Enter>" : neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : neocomplete#close_popup()
-" smap <expr><Enter> !pumvisible() ? "\<Enter>" : neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : neocomplete#close_popup()
-
-" SuperTab like snippets behavior.
-" imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-" imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-" smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
-
-" 自分用snippetファイルを登録
-" let s:my_snippets='~/.vim/snippets/'
-" let g:neosnippet#snippets_directory = s:my_snippets
-
-"python-syntaxの設定
-let python_highlight_all = 1
-
 " \cで行の先頭にコメントをつけたり外したりできる
 " 参照：http://ichyo.jp/posts/2014-03-1-4how-to-comment-out-with-vim/
 nmap <Leader>c <Plug>(caw:i:toggle)
@@ -293,18 +187,6 @@ nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
-
-
-" TwitVimの設定
-" 参照：http://qiita.com/noboru/items/f709e42489d9351e8421
-" let twitvim_browser_cmd = 'open' " for Mac
-" let twitvim_browser_cmd = '/Applications/Firefox.app' " for Mac
-" let twitvim_browser_cmd = 'C:¥Program Files¥Your_Browser_Path' " for Windows
-let twitvim_force_ssl = 1 
-let twitvim_count = 40
-
-" skk.vimの設定
-let g:skk_auto_save_jisyo = 1
 
 " vim-table-modeの設定
 let g:table_mode_corner_corner="+"
