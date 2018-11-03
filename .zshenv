@@ -1,3 +1,10 @@
+# PATH setting
+# array variable 'path' is synced PATH
+path=(
+    $path
+    /usr/local/root/bin(N-/)
+    /usr/local/python/bin(N-/)
+)
 
 case ${OSTYPE} in
     darwin*) # Macでの設定
