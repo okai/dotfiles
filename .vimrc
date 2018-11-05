@@ -25,6 +25,7 @@ Plugin 'w0ng/vim-hybrid'
 Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'itchyny/lightline.vim'
+Plugin 'katono/rogue.vim'
 
 call vundle#end()
 filetype plugin indent on
