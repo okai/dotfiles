@@ -43,6 +43,8 @@ let g:lightline = {
 " .texファイルの記号を変換して表示しない
 let g:tex_conceal=''
 
+set encoding=utf-8
+
 set autoindent
 "バックアップファイルを作るディレクトリ
 " set backupdir=$HOME/vimbackup
