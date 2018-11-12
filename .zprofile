@@ -1,6 +1,14 @@
 # alias ls="ls --color -F"
 # alias ls="ls -G"
-alias ls="ls -G -F --color=auto"
+case ${OSTYPE} in
+    darwin*)
+        alias ls="ls -GF"
+        ;;
+    linux*)
+        alias ls="ls -F --color=auto"
+        ;;
+esac
+
 alias cdweb='cd ~/SkyDrive/Dropbox/web/homepage/public_html'
 alias cdsotsuken='cd ~/SkyDrive/Dropbox/資料/学習資料/卒業研究'
 alias cddialy='cd ~/SkyDrive/Dropbox/日記'
