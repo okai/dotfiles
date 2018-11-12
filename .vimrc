@@ -21,6 +21,7 @@ Plugin 'VundleVim/Vundle.vim'
 " 導入したいプラグインを以下に列挙
 " Plugin '[Github Auther]/[Github repo]' の形式で記入
 Plugin 'tyru/caw.vim.git'
+Plugin 'tyru/eskk.vim'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
