@@ -32,6 +32,21 @@ call vundle#end()
 filetype plugin indent on
 
 
+" eskk settings
+let g:eskk#directory = '~/.eskk'
+let g:eskk#dictionary = {
+            \   'path'      :   "~/.skk_dictionary/user-dictionary",
+            \   'sorted'    :   0,
+            \   'encoding'  :   'utf-8',
+            \}
+let g:eskk#large_dictionary = {
+            \   'path'      :   "~/.skk_dictionary/SKK-JISYO.L",
+            \   'sorted'    :   1,
+            \   'encoding'  :   'euc-jp',
+            \}
+
+" set imdisable
+
 syntax on
 set background=dark
 " set t_Co=256
