@@ -45,6 +45,7 @@ let g:lightline = {
 let g:tex_conceal=''
 
 set encoding=utf-8
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 
 set autoindent
 "バックアップファイルを作るディレクトリ
