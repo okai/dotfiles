@@ -1,0 +1,90 @@
+Please report this error to author.
+`:help eskk` to see author's e-mail address.
+
+火 11/13 17:01:59 2018
+
+--- char ---
+char: ''(0)
+mode(): i
+--- char ---
+
+--- exception ---
+exception type: Vim internal error
+v:exception: Can't read '/Users/okai/.skk_dictionary/user-dictionary'!
+v:throwpoint: function eskk#filter[75]..<SNR>33_asym_filter[58]..<SNR>33_filter_rom[9]..<SNR>33_filter_rom_okuri[81]..<SNR>33_filter_rom_exact_match[62]..<SNR>33_do_henkan[17]..<SNR>33_do_henkan_other[56]..<SNR>51_Dictionary_refer[13]..<SNR>51_PhysicalDict_update_lines[7]..<SNR>51_PhysicalDict_update_lines_main, line 2
+
+   function <SNR>51_PhysicalDict_update_lines_main() abort dict
+1      unlockvar 1 self._content_lines↲
+2      let self._content_lines  = readfile(self.path)↲
+3      lockvar 1 self._content_lines↲
+4      call self.parse_lines()↲
+5  ↲
+6      let self._ftime_at_set = getftime(self.path)↲
+   endfunction
+--- exception ---
+
+--- preedit ---
+(no preedit)
+--- preedit ---
+
+--- Vim's :version ---
+VIM - Vi IMproved 8.1 (2018 May 18, compiled Oct  3 2018 05:41:36)
+macOS version
+Included patches: 1-450
+Compiled by Homebrew
+Huge version without GUI.  Features included (+) or not (-):
++acl               +cursorbind        +insert_expand     +mouse_sgr         +ruby              +vartabs
++arabic            +cursorshape       +job               -mouse_sysmouse    +scrollbind        +vertsplit
++autocmd           +dialog_con        +jumplist          +mouse_urxvt       +signs             +virtualedit
++autochdir         +diff              +keymap            +mouse_xterm       +smartindent       +visual
+-autoservername    +digraphs          +lambda            +multi_byte        +startuptime       +visualextra
+-balloon_eval      -dnd               +langmap           +multi_lang        +statusline        +viminfo
++balloon_eval_term -ebcdic            +libcall           -mzscheme          -sun_workshop      +vreplace
+-browse            +emacs_tags        +linebreak         +netbeans_intg     +syntax            +wildignore
+++builtin_terms    +eval              +lispindent        +num64             +tag_binary        +wildmenu
++byte_offset       +ex_extra          +listcmds          +packages          +tag_old_static    +windows
++channel           +extra_search      +localmap          +path_extra        -tag_any_white     +writebackup
++cindent           +farsi             -lua               +perl              -tcl               -X11
+-clientserver      +file_in_path      +menu              +persistent_undo   +termguicolors     -xfontset
++clipboard         +find_in_path      +mksession         +postscript        +terminal          -xim
++cmdline_compl     +float             +modify_fname      +printer           +terminfo          -xpm
++cmdline_hist      +folding           +mouse             +profile           +termresponse      -xsmp
++cmdline_info      -footer            -mouseshape        -python            +textobjects       -xterm_clipboard
++comments          +fork()            +mouse_dec         +python3           +timers            -xterm_save
++conceal           -gettext           -mouse_gpm         +quickfix          +title             
++cryptv            -hangul_input      -mouse_jsbterm     +reltime           -toolbar           
++cscope            +iconv             +mouse_netterm     +rightleft         +user_commands     
+   system vimrc file: "$VIM/vimrc"
+     user vimrc file: "$HOME/.vimrc"
+ 2nd user vimrc file: "~/.vim/vimrc"
+      user exrc file: "$HOME/.exrc"
+       defaults file: "$VIMRUNTIME/defaults.vim"
+  fall-back for $VIM: "/usr/local/share/vim"
+Compilation: 
+clang -c -I. -Iproto -DHAVE_CONFIG_H   -DMACOS_X -DMACOS_X_DARWIN  -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1       
+Linking: clang   -L. -fstack-protector -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/openssl/lib -L/usr/local/opt/readline/lib  -L/usr/local/lib -o vim        -lncurses -liconv -framework AppKit   -mmacosx-version-min=10.14 -fstack-protector-strong -L/usr/local/lib  -L/usr/local/Cellar/perl/5.28.0/lib/perl5/5.28.0/darwin-thread-multi-2level/CORE -lperl -lm -lutil -lc  -L/usr/local/opt/python/Frameworks/Python.framework/Versions/3.7/lib/python3.7/config-3.7m-darwin -lpython3.7m -framework CoreFoundation  -lruby.2.5.1 -lobjc    
+--- Vim's :version ---
+
+
+--- Operating System ---
+"uname -a" = Darwin okaiMBP.local 18.0.0 Darwin Kernel Version 18.0.0: Wed Aug 22 20:13:40 PDT 2018; root:xnu-4903.201.2~1/RELEASE_X86_64 x86_64
+--- Operating System ---
+
+--- feature-list ---
+gui_running = 0
+unix = 1
+mac = 1
+macunix = 1
+win16 = 0
+win32 = 0
+win64 = 0
+win32unix = 0
+win95 = 0
+amiga = 0
+beos = 0
+dos16 = 0
+dos32 = 0
+os2 = 1
+qnx = 0
+vms = 0
+--- feature-list ---
