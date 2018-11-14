@@ -8,3 +8,4 @@ ln -sf ./dotfiles/.vimperatorrc ~/.vimperatorrc
 ln -sf ./dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ./dotfiles/.eskk ~/.eskk
 ln -sf ./dotfiles/.skk_dictionary ~/.skk_dictionary
+ln -sf ./dotfiles/.tmux.d ~/.tmux.d
