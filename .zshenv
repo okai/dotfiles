@@ -6,6 +6,13 @@ path=(
     /usr/local/python/bin(N-/)
 )
 
+# 'less' command settings
+export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+export LESS='-M -R -N'
+export PAGER=less
+export LESSCHARSET=utf-8
+export VISUAL=vim
+
 case ${OSTYPE} in
     darwin*) # Macでの設定
 

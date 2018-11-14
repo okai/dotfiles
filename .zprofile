@@ -6,6 +6,7 @@ case ${OSTYPE} in
         ;;
     linux*)
         alias ls="ls -F --color=auto"
+        alias ls="ls -F --color=always"
         ;;
 esac
 

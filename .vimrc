@@ -135,8 +135,8 @@ set cmdheight=2
 set showcmd
 "タイトルを表示
 set title
-"helpの言語をデフォルトで英語にする。キーワードの後に@jaをつけると日本語になる
-set helplang& helplang=en,ja
+"helpの言語をデフォルトで日本語にする。キーワードの後に@enをつけると英語になる
+set helplang& helplang=ja,en
 
 " 行番号を相対表示にする。
 " 参照：http://cohama.hateblo.jp/entry/2013/10/07/020453
