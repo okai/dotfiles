@@ -7,7 +7,9 @@ path=(
 )
 
 # 'less' command settings
-export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+# export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+export LESSOPEN="| source-highlight -f esc-solarized --style-file=esc-solarized.style -i %s -o STDOUT"
+# export LESSOPEN="| source-highlight --style-file=esc-solarized.style -i %s -o STDOUT"
 export LESS='-M -R -N'
 export PAGER=less
 export LESSCHARSET=utf-8
