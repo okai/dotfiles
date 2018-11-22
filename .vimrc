@@ -137,6 +137,8 @@ set showcmd
 set title
 "helpの言語をデフォルトで日本語にする。キーワードの後に@enをつけると英語になる
 set helplang& helplang=ja,en
+" コマンドラインでの補完候補を表示する
+set wildmenu
 
 " 行番号を相対表示にする。
 " 参照：http://cohama.hateblo.jp/entry/2013/10/07/020453
