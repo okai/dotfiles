@@ -10,4 +10,4 @@ ln -sf ./dotfiles/.eskk ~/.eskk
 ln -sf ./dotfiles/.skk_dictionary ~/.skk_dictionary
 ln -sf ./dotfiles/.tmux.d ~/.tmux.d
 ln -sf ./dotfiles/.source-highlight ~/.source-highlight
-ln -sf ./dotfiles/.show-256-colors.py ~/.show-256-colors.py
+ln -sf ./dotfiles/.show-all-256-colors.py ~/.show-all-256-colors.py
