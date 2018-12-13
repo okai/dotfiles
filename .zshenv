@@ -4,6 +4,7 @@ path=(
     $path
     /usr/local/root/bin(N-/)
     /usr/local/python/bin(N-/)
+    ~/.local/bin(N-/)
 )
 
 # 'less' command settings
