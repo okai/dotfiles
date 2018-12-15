@@ -5,6 +5,7 @@ path=(
     /usr/local/root/bin(N-/)
     /usr/local/python/bin(N-/)
     ~/.local/bin(N-/)
+    /home/xqw/root/bin(N-/)
 )
 
 # 'less' command settings
