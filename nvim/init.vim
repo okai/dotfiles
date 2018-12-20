@@ -7,7 +7,6 @@ if OSTYPE == "Darwin\n"
 
 elseif OSTYPE == "Linux\n"
    "ここにLinux向けの設定
-
 endif
 
 "Vi互換をオフ
@@ -20,61 +19,39 @@ if &compatible
     set nocompatible               " Be iMproved
 endif
 
-" Required:
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-" Required:
-if dein#load_state('~/.cache/dein')
-    call dein#begin('~/.cache/dein')
+let s:cache_home = expand('~/.cache')
+let s:config_home = expand('~/.config')
 
-    " Let dein manage dein
-    " Required:
-    call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-    " Add or remove your plugins here like this:
-    call dein#add('Shougo/neosnippet.vim')
-    call dein#add('Shougo/neosnippet-snippets')
-    call dein#add('tyru/caw.vim.git')
-    call dein#add('tyru/eskk.vim')
-    call dein#add('w0ng/vim-hybrid')
-    call dein#add('tomasr/molokai')
-    call dein#add('altercation/vim-colors-solarized')
-    call dein#add('itchyny/lightline.vim')
-    call dein#add('katono/rogue.vim')
-    " call dein#add('Lokaltog/vim-easymotion')
-
-    " Required:
-    call dein#end()
-    call dein#save_state()
+" dein settings {{{
+" https://qiita.com/kawaz/items/ee725f6214f91337b42b
+" dein自体の自動インストール
+let s:dein_dir = s:cache_home . '/dein'
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+if !isdirectory(s:dein_repo_dir)
+  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
 endif
-
-" Required:
-filetype plugin indent on
-syntax enable
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
+let &runtimepath = s:dein_repo_dir .",". &runtimepath
+" プラグイン読み込み＆キャッシュ作成
+let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
+" let s:toml_file = g:rc_dir.'/dein.toml'
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+  call dein#load_toml(s:toml_file)
+  call dein#end()
+  call dein#save_state()
+endif
+" 不足プラグインの自動インストール
+if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
-
-"End dein Scripts-------------------------
+" }}}
 
 
 filetype plugin indent on
 
 
-" eskk settings
-let g:eskk#directory = '~/.eskk'
-let g:eskk#dictionary = {
-            \   'path'      :   "~/.skk_dictionary/user-dictionary",
-            \   'sorted'    :   0,
-            \   'encoding'  :   'utf-8',
-            \}
-let g:eskk#large_dictionary = {
-            \   'path'      :   "~/.skk_dictionary/SKK-JISYO.L",
-            \   'sorted'    :   1,
-            \   'encoding'  :   'euc-jp',
-            \}
 
 " " easymotionの設定
 " " ホームポジションに近いキーを使う
@@ -89,16 +66,13 @@ let g:eskk#large_dictionary = {
 " hi EasyMotionShade  ctermbg=none ctermfg=blue
 
 syntax on
-set background=dark
-" set t_Co=256
-colorscheme solarized
 
-let g:lightline = {
-            \ 'colorscheme': 'solarized', 
-            \ }
 
 " .texファイルの記号を変換して表示しない
 let g:tex_conceal=''
+
+" leaderをスペースキーにする
+let mapleader = "\<Space>"
 
 set encoding=utf-8
 set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
@@ -184,13 +158,7 @@ set wildmenu
 
 " 行番号を相対表示にする。
 " 参照：http://cohama.hateblo.jp/entry/2013/10/07/020453
-" set relativenumber
 set rnu
-
-"カーソル位置保存&復元
-"参照：http://ac-mopp.blogspot.jp/2012/10/vim-to.html
-" autocmd BufWinLeave ?* silent mkview
-" autocmd BufWinEnter ?* silent loadview
 
 " カーソル位置記憶
 " https://qiita.com/rouge_pawn/items/342607bb26894cea9767
@@ -220,9 +188,9 @@ set guioptions+=a
 "set ttymouse=xterm2
 
 "コンソール版で環境変数$DISPLAYが設定されていると起動が遅くなる件へ対応
-if !has('gui_running') && has('xterm_clipboard')
-  set clipboard=exclude:cons\\\|linux\\\|cygwin\\\|rxvt\\\|screen
-endif
+" if !has('gui_running') && has('xterm_clipboard')
+"   set clipboard=exclude:cons\\\|linux\\\|cygwin\\\|rxvt\\\|screen
+" endif
 
 "ヤンクした文字は、システムのクリップボードに入れる
 set clipboard+=unnamed

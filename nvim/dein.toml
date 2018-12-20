@@ -1,0 +1,83 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_source = '''
+let g:deoplete#enable_at_startup = 1
+inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+            \ neosnippet#expandable_or_jumpable() ?
+            \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+hook_source = '''
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_or_target)
+if has('conceal')
+    set conceallevel=2 concealcursor=niv
+endif
+let g:neosnippet#snippets_directory = '~/.config/nvim/snippets'
+'''
+# on_i = 1
+# on_ft = ['snippet']
+depends = ['neosnippet-snippets']
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'tyru/caw.vim.git'
+
+[[plugins]]
+repo = 'tyru/eskk.vim'
+hook_add = '''
+let g:eskk#directory = '~/.eskk'
+let g:eskk#dictionary = {
+            \   'path'      :   "~/.skk_dictionary/user-dictionary",
+            \   'sorted'    :   0,
+            \   'encoding'  :   'utf-8',
+            \}
+let g:eskk#large_dictionary = {
+            \   'path'      :   "~/.skk_dictionary/SKK-JISYO.L",
+            \   'sorted'    :   1,
+            \   'encoding'  :   'euc-jp',
+            \}
+'''
+
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+hook_add = '''
+    set background=dark
+    au!
+    au VimEnter * nested colorscheme solarized
+'''
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+let g:lightline = {
+            \ 'colorscheme': 'solarized', 
+            \ }
+'''
+
+[[plugins]]
+repo = 'katono/rogue.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
