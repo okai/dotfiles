@@ -1,0 +1,28 @@
+snippet preamble_beamer
+abbr    Preamble of beamer slides.
+    \documentclass[12pt, unicode] {beamer}
+    \usetheme{Boadilla}
+    \usefonttheme[onlymath]{serif}
+    %\usecolortheme{seahorse}
+    \setbeamertemplate{items}[default]
+    \setbeamertemplate{section in toc}[default]
+    \setbeamertemplate{navigation symbols}{}
+    \usepackage{luatexja}
+    \renewcommand{\kanjifamilydefault}{\gtdefault}
+
+    \newcommand{\bvec}[1]{\mbox{\boldmath $#1$}}
+
+
+    \title{title}
+    \author{K. Okai}
+    \date{2019/00/00}
+
+    \begin{document}
+
+    \frame{\maketitle}
+
+    \begin{frame}{Index}
+    \tableofcontents
+    \end{frame}
+    
+    \end{document}

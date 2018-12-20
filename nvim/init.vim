@@ -13,6 +13,8 @@ endif
 set nocompatible
 filetype off
 
+" 一旦offにして後でonにする
+filetype plugin indent off
 
 "dein Scripts-----------------------------
 if &compatible
@@ -49,7 +51,6 @@ endif
 " }}}
 
 
-filetype plugin indent on
 
 
 
@@ -75,7 +76,7 @@ let g:tex_conceal=''
 let mapleader = "\<Space>"
 
 set encoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
  
 set autoindent
 "バックアップファイルを作るディレクトリ
@@ -231,3 +232,7 @@ vmap <Leader>c <Plug>(caw:i:toggle)
 " vim-table-modeの設定
 "let g:table_mode_corner_corner="+"
 "let g:table_mode_header_fillchar="="
+"
+"
+filetype plugin indent on
+
