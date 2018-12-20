@@ -189,8 +189,15 @@ set rnu
 
 "カーソル位置保存&復元
 "参照：http://ac-mopp.blogspot.jp/2012/10/vim-to.html
-autocmd BufWinLeave ?* silent mkview
-autocmd BufWinEnter ?* silent loadview
+" autocmd BufWinLeave ?* silent mkview
+" autocmd BufWinEnter ?* silent loadview
+
+" カーソル位置記憶
+" https://qiita.com/rouge_pawn/items/342607bb26894cea9767
+autocmd BufReadPost *
+      \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+      \   exe "normal! g'\"" |
+      \ endif
 
 "pythonコードでdocstringは表示しない
 "参照：http://dackdive.hateblo.jp/entry/2014/08/13/130000
