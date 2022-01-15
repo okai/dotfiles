@@ -183,6 +183,14 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+inoremap <C-h> <BS>
+inoremap <C-d> <Del>
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
+inoremap <C-a> <C-o>0
+inoremap <C-e> <C-o>$
+inoremap <C-k> <C-o>D
+
 "マウスを使えるようにする
 set mouse=a
 set guioptions+=a

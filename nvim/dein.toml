@@ -96,7 +96,8 @@ hook_add = '''
 let g:quickrun_config = {
             \   'tex': {
             \       'command': 'latexmk',
-            \       'exec': ['%c -lualatex %s', 'open -g %s:r.pdf'],
+            \       'cmdopt': '-lualatex',
+            \       'exec': ['%c %o %s:.', 'open -g %s:r.pdf'],
             \       'into': 1
             \   },
             \}
