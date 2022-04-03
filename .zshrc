@@ -66,6 +66,9 @@ export LANG=ja_JP.UTF-8
 # PYTHONPATHの設定
 export PYTHONPATH='/usr/local/lib/python3.5/site-packages'
 
+# Add the ROOT's path to $PATH
+export PATH=/Application/root_v6.27.01/bin:$PATH
+
 ## Default shell configuration
 #
 # set prompt

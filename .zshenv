@@ -43,6 +43,9 @@ case ${OSTYPE} in
         # alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
         # alias vim='/usr/local/bin/vim "$@"'
 
+        # Seting for ROOT
+        alias root='/Applications/root_v6.27.01/bin/root'
+
         # VESTAの設定
         alias vesta='open -a /Applications/VESTA/VESTA.app'
 
